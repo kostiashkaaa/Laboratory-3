@@ -1,0 +1,26 @@
+﻿# Build outputs
+/build/
+/bin/
+/obj/
+*.o
+*.obj
+*.out
+*.exe
+*.dll
+*.lib
+*.exp
+*.pdb
+*.ilk
+
+# IDE
+.vs/
+.vscode/
+*.user
+*.log
+*.cache/
+
+# Misc
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
