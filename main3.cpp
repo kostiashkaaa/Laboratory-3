@@ -127,8 +127,8 @@ public:
         if (price <= 0) {
             throw std::invalid_argument("Цена должна быть положительной");
         }
-        if (discount < 0 || discount > 100) {
-            throw std::invalid_argument("Скидка должна быть в диапазоне 0-100%");
+        if (discount < 1 || discount > 99) {
+            throw std::invalid_argument("Скидка должна быть в диапазоне 1-99%");
         }
 
         tariffs.push_back(std::make_shared<BenefitTariff>(destination, price, discount));
@@ -350,7 +350,7 @@ static void actionAddBenefitTariff(ATC& atc) {
     try {
         std::string destination = readCityName("Введите направление (город): ");
         double price = readPositiveDouble("Введите базовую цену за минуту (руб.): ", 0.01, 1000.0);
-        double discount = readPositiveDouble("Введите размер скидки (%): ", 0.0, 100.0);
+        double discount = readPositiveDouble("Введите размер скидки (%): ", 1.0, 99.0);
         atc.addBenefitTariff(destination, price, discount);
     }
     catch (const std::exception& e) {
